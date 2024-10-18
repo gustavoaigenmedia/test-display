@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Videos e Imágenes</title>
+    <style>
+        /* Estilos básicos para mejorar la presentación */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 1600px;
+        }
+
+        .video-comparison,
+        .image-gallery,
+        .image-comparison,
+        .audio-player {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery img {
+            margin: 5px;
+            max-width: 30vw;
+            height: auto;
+        }
+
+        /* Nuevo estilo para los videos */
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Estilos para el botón de mostrar/Hide */
+        .toggle-btn {
+            background-color: #888;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Estilos para el contenido oculto */
+        .hidden-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Test Results</h1>
+    <h2>Lip Sync (SadTalker vs Kling)</h2>
+    <button class="toggle-btn" onclick="toggleContent('lip-sync')">Hide</button>
+    <div id="lip-sync">
+        <h3>Resources</h3>
+        <div class="image-gallery">
+            <div class="gallery">
+                <img src="test-lipsync\1_JPG.jpg" alt="Imagen 1" onclick="zoomImage(this.src)" style="cursor: pointer;">
+                <img src="test-lipsync\2_JPG.jpg" alt="Imagen 2" onclick="zoomImage(this.src)" style="cursor: pointer;">
+                <img src="test-lipsync\3_JPG.jpg" alt="Imagen 3" onclick="zoomImage(this.src)" style="cursor: pointer;">
+                <img src="test-lipsync\4_JPG.jpg" alt="Imagen 4" onclick="zoomImage(this.src)" style="cursor: pointer;">
+                <img src="test-lipsync\5_JPG.jpg" alt="Imagen 5" onclick="zoomImage(this.src)" style="cursor: pointer;">
+                <img src="test-lipsync\6_JPG.jpg" alt="Imagen 6" onclick="zoomImage(this.src)" style="cursor: pointer;">
+                <img src="test-lipsync\7_JPG.jpg" alt="Imagen 7" onclick="zoomImage(this.src)" style="cursor: pointer;">
+                <!-- Añade más imágenes según sea necesario -->
+            </div>
+        </div>
+
+        <div class="audio-gallery">
+            <div class="gallery">
+                <div class="audio-player">
+                    <audio controls>
+                        <source src="test-lipsync\Audio-1.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+                <div class="audio-player">
+                    <audio controls>
+                        <source src="test-lipsync\Audio-2.mp3" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+        <h3>Video Comparison</h3>
+        <div class="video-comparison">
+            <table>
+                <tr>
+                    <th>SadTalker</th>
+                    <th>KLING</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 2.08</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-1-1-2,08.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 7.48</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\k-1-1-7,48.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 1.59</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-1-2-1,59.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 7.50</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\k-1-2-7,50.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 3.50</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-2-1-3,50.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 7.50</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\k-2-1-7,50.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 3.54</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-2-2-3,54.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 7.47</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\k-2-2-7,47.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 3.49</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-4-1-3,49.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 8.21</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\k-4-1-8,21.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 3.44</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-4-2-3,44.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 8.04</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\K-4-2-8,04.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 2.57</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-5-1-2,57.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 7.35</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\K-5-1-7,35.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 2.51</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-5-2-2,51.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td>
+                        <p>time: 7.46</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\Kling\K-5-2-7,46.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 2.17</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-6-1-2,17.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 2.14</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-6-2-2,14.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 2.57</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-7-1-2,57.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>time: 2.52</p>
+                        <video width="400" controls>
+                            <source src="test-lipsync\output\FaceAvatar\FA-7-2-2,52.mp4" type="video/mp4">
+                            Tu navegador no soporta el tag de video.
+                        </video>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>Face Fusion - First AI NEWS Video</h2>
+    <button class="toggle-btn" onclick="toggleContent('face-fusion-news')">Hide</button>
+    <h3>Resources</h3>
+    <div class="image-gallery">
+        <div class="gallery">
+            <img src="FaceFusionNews\1\resources\1-jpeg.jpeg" alt="Imagen 1" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\2-jpeg.jpeg" alt="Imagen 2" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\3-jpeg.jpeg" alt="Imagen 3" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\4-jpeg.jpeg" alt="Imagen 4" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\5-jpeg.jpeg" alt="Imagen 5" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\6-jpeg.jpeg" alt="Imagen 6" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\7-jpeg.jpeg" alt="Imagen 7" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\8-jpeg.jpeg" alt="Imagen 8" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\9-jpeg.jpeg" alt="Imagen 9" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\10-jpeg.jpeg" alt="Imagen 10" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\11-jpeg.jpeg" alt="Imagen 11" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+            <img src="FaceFusionNews\1\resources\12-jpeg.jpeg" alt="Imagen 12" onclick="zoomImage(this.src)"
+                style="cursor: pointer;">
+        </div>
+    </div>
+    <div class="image-gallery">
+        <div class="gallery">
+            <div class="audio-player">
+                <p>Audio 1</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\1.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 2</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\2.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 3</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\3.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 4</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\4.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 5</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\5.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 6</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\6.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 7</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\7.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 8</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\8.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 9</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\9.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 10</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\10.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+            <div class="audio-player">
+                <p>Audio 11</p>
+                <audio controls>
+
+            </div>
+            <div class="audio-player">
+                <p>Audio 12</p>
+                <audio controls>
+                    <source src="FaceFusionNews\1\resources\12.wav" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+        </div>
+    </div>
+    </div>
+    <h3>Videos</h3>
+    <div id="face-fusion-news" class="video-comparison">
+        <table>
+            <tr>
+                <th>FaceFusion</th>
+            </tr>
+            <tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\1.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\2.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            <tr></tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\3.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\4.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            <tr></tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\5.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\6.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\7.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\8.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\9.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\10.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\11.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+            </tr>
+            <td>
+                <video width="400" controls>
+                    <source src="FaceFusionNews\1\12.mp4" type="video/mp4">
+                    Tu navegador no soporta el tag de video.
+                </video>
+            </td>
+            </tr>
+
+        </table>
+    </div>
+    <h3>Final Video</h3>
+    <div class="video-comparison">
+        <video width="400" controls>
+            <source src="FaceFusionNews\1\Final.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
+    </div>
+
+    <!-- Comparación de imágenes -->
+    <h2>Face Swapping</h2>
+    <button class="toggle-btn" onclick="toggleContent('face-swapping')">Hide</button>
+    <div id="face-swapping" class="image-comparison">
+        <h3>FaceFusion</h3>
+        <table>
+            <tr>
+                <th>Target</th>
+                <th>Resource</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td><img src="face-swap\1-target.jpeg" alt="Imagen Comparación 1"
+                        style="max-width: 400px; cursor: pointer;" onclick="zoomImage(this.src)"></td>
+                <td><img src="face-swap\1-resource.webp" alt="Imagen Comparación 2"
+                        style="max-width: 400px; cursor: pointer;" onclick="zoomImage(this.src)"></td>
+                <td><img src="face-swap\1-result.jpeg" alt="Imagen Comparación 2"
+                        style="max-width: 400px; cursor: pointer;" onclick="zoomImage(this.src)"></td>
+            </tr>
+            <tr>
+                <td> <video width="400" controls>
+                        <source src="face-swap\2-target.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                    </video></td>
+                <td><img src="face-swap\2-resource.webp" alt="Imagen Comparación 2"
+                        style="max-width: 400px; cursor: pointer;" onclick="zoomImage(this.src)">
+                    <audio controls>
+                        <source src="face-swap\2-2-resource.wav" type="audio/mpeg">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </td>
+                <td> <video width="400" controls>
+                        <source src="face-swap\2-result.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                    </video></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function zoomImage(src) {
+            var modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+            modal.style.zIndex = '1000';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.cursor = 'pointer';
+
+            var img = document.createElement('img');
+            img.src = src;
+            img.style.maxWidth = '80vw';
+            img.style.maxHeight = '80vh';
+            img.style.width = '80vw';
+            img.style.height = '80vh';
+            img.style.objectFit = 'contain';
+
+            modal.appendChild(img);
+            document.body.appendChild(modal);
+
+            modal.onclick = function () {
+                document.body.removeChild(modal);
+            };
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            var button = document.querySelector(`button[onclick="toggleContent('${id}')"]`);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                button.textContent = button.textContent.replace("Show", "Hide");
+            } else {
+                content.style.display = "none";
+                button.textContent = button.textContent.replace("Hide", "Show");
+            }
+        }
+    </script>
+</body>
+
+</html>
